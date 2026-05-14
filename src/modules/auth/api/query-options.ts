@@ -2,7 +2,7 @@ import { queryOptions } from '@tanstack/react-query';
 
 import { verifySession } from '@/modules/auth/api/query-fns';
 
-export const sessionQueryOptions = queryOptions({
+export const verifyAuthQueryOptions = queryOptions({
   queryKey: ['users', 'me'],
   queryFn: async () => {
     try {

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { onMutationError } from '@/core/lib/mutation-toast';
 import { login, logout } from '@/modules/auth/api/query-fns';
-import { sessionQueryOptions } from '@/modules/auth/api/query-options';
+import { verifyAuthQueryOptions } from '@/modules/auth/api/query-options';
 
 const fallback = '/app/dashboard' as const;
 
@@ -20,7 +20,7 @@ export function useAuthLoginMutation() {
     mutationKey: ['auth', 'login'],
     mutationFn: login,
     onSuccess: async (user) => {
-      queryClient.setQueryData(sessionQueryOptions.queryKey, user);
+      queryClient.setQueryData(verifyAuthQueryOptions.queryKey, user);
       await router.invalidate();
       await navigate({ to: redirect ?? fallback });
     },
@@ -38,7 +38,7 @@ export function useAuthLogoutMutation() {
     mutationKey: ['auth', 'logout'],
     mutationFn: logout,
     onSuccess: async () => {
-      queryClient.setQueryData(sessionQueryOptions.queryKey, null);
+      queryClient.setQueryData(verifyAuthQueryOptions.queryKey, null);
       await router.invalidate();
       await navigate({ to: '/login' });
     },

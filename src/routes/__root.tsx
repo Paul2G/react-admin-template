@@ -17,7 +17,7 @@ import {
   getUserLocalePreference,
   setLocaleInDocument,
 } from '@/layout/lib/locales';
-import { sessionQueryOptions } from '@/modules/auth/api/query-options';
+import { verifyAuthQueryOptions } from '@/modules/auth/api/query-options';
 import { validator } from '@/modules/auth/lib/utils';
 
 type RootRouteContext = {
@@ -28,7 +28,7 @@ type RootRouteContext = {
 
 export const Route = createRootRouteWithContext<RootRouteContext>()({
   beforeLoad: async ({ context: { queryClient } }) => {
-    const user = await queryClient.ensureQueryData(sessionQueryOptions);
+    const user = await queryClient.ensureQueryData(verifyAuthQueryOptions);
 
     const auth: AuthContext = {
       user,
