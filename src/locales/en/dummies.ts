@@ -4,6 +4,7 @@ export const dummies = {
     image: 'Image',
     email: 'Email',
     isSpecial: 'Is special?',
+    special: 'Special',
     price: 'Price',
     count: 'Count',
     website: 'Website',

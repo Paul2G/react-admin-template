@@ -1,6 +1,6 @@
 import type { Dummy } from '@/modules/dummies/types';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { DotsThreeIcon, PencilIcon, TrashIcon } from '@phosphor-icons/react';
 import { useTranslation } from 'react-i18next';
 
@@ -17,7 +17,11 @@ import { UpdateDummyDialog } from '@/modules/dummies/components/dialogs/update-d
 import { useDeleteDummyMutation } from '@/modules/dummies/hooks/mutations';
 import { ApiPermissions } from '@/modules/shared/constants/permissions';
 
-export function DummyActions({ dummy }: DataActionsProps) {
+export function DummyActions({
+  dummy,
+  className,
+  ...restOfProps
+}: DataActionsProps) {
   const { t } = useTranslation();
 
   const [confirmOpen, setConfirmOpen] = useState(false);
@@ -34,8 +38,13 @@ export function DummyActions({ dummy }: DataActionsProps) {
     >
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon">
-            <DotsThreeIcon weight="bold" />
+          <Button
+            variant="ghost"
+            size="icon"
+            className={className}
+            {...restOfProps}
+          >
+            <DotsThreeIcon weight="bold" className="size-5" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
@@ -75,6 +84,6 @@ export function DummyActions({ dummy }: DataActionsProps) {
   );
 }
 
-export type DataActionsProps = {
+export type DataActionsProps = React.ComponentProps<typeof Button> & {
   dummy: Dummy;
 };

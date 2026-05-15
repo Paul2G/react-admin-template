@@ -1,5 +1,5 @@
 import type { Dummy } from '@/modules/dummies/types';
-import type { ColumnDef, VisibilityState } from '@tanstack/react-table';
+import type { ColumnDef } from '@tanstack/react-table';
 
 import { DataTableCell } from '@/core/components/data/data-table-cell';
 import { DataTableCheckboxCell } from '@/core/components/data/data-table-checkbox-cell';
@@ -53,10 +53,28 @@ export const dummiesTableColumns: ColumnDef<Dummy>[] = [
     cell: DataTableCell,
   },
   {
+    accessorKey: 'website',
+    meta: {
+      headerI18nKey: 'dummies:fields.website',
+      columnType: DataTableColumnType.URL,
+    },
+    header: DataTableHeader,
+    cell: DataTableCell,
+  },
+  {
     accessorKey: 'email',
     meta: {
       headerI18nKey: 'dummies:fields.email',
       columnType: DataTableColumnType.EMAIL,
+    },
+    header: DataTableHeader,
+    cell: DataTableCell,
+  },
+  {
+    accessorKey: 'price',
+    meta: {
+      headerI18nKey: 'dummies:fields.price',
+      columnType: DataTableColumnType.MONEY,
     },
     header: DataTableHeader,
     cell: DataTableCell,
@@ -94,18 +112,3 @@ export const dummiesTableColumns: ColumnDef<Dummy>[] = [
     enableHiding: false,
   },
 ];
-
-export const dummiesColumnsDefaultState: VisibilityState = {
-  count: true,
-  created_at: true,
-  description: true,
-  email: true,
-  id: true,
-  image: false,
-  key: true,
-  name: true,
-  price: true,
-  special: true,
-  status: true,
-  website: true,
-};
