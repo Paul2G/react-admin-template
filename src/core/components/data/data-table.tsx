@@ -8,6 +8,7 @@ import type {
 import type { ComponentProps, Dispatch, SetStateAction } from 'react';
 
 import { useEffect, useState } from 'react';
+import { MagnifyingGlassIcon } from '@phosphor-icons/react';
 import {
   flexRender,
   getCoreRowModel,
@@ -23,6 +24,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/core/components/ui/table';
+import { Typography } from '@/core/components/ui/typography';
 import { cn } from '@/core/lib/utils';
 
 export function DataTable<TData>({
@@ -125,8 +127,19 @@ export function DataTable<TData>({
             ))
           ) : (
             <TableRow>
-              <TableCell colSpan={columns.length} className="h-24 text-center">
-                {t('core:messages.noResultsFound')}
+              <TableCell colSpan={columns.length}>
+                <div className="flex flex-col items-center gap-2 py-16">
+                  <MagnifyingGlassIcon
+                    className="text-muted-foreground size-20"
+                    weight="thin"
+                  />
+                  <Typography variant="lead" className="text-center">
+                    {t('core:messages.noResultsFound')}
+                  </Typography>
+                  <Typography variant="muted" className="text-center">
+                    {t('core:messages.tryRemovingFilters')}
+                  </Typography>
+                </div>
               </TableCell>
             </TableRow>
           )}

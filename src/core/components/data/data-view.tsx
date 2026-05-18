@@ -3,6 +3,7 @@ import type { ColumnDef, Row, VisibilityState } from '@tanstack/react-table';
 import type { Dispatch, SetStateAction } from 'react';
 
 import React, { useState } from 'react';
+import { MagnifyingGlassIcon } from '@phosphor-icons/react';
 import { useTranslation } from 'react-i18next';
 
 import { DataPaginator } from '@/core/components/data/data-paginator';
@@ -99,9 +100,18 @@ export function DataView<TData>({
           {items.length ? (
             items.map(dataGridCardSlot)
           ) : (
-            <Typography variant="lead" className="text-center my-16">
-              {t('core:messages.noResultsFound')}
-            </Typography>
+            <div className="flex flex-col items-center gap-2 py-16">
+              <MagnifyingGlassIcon
+                className="text-muted-foreground size-20"
+                weight="thin"
+              />
+              <Typography variant="lead" className="text-center">
+                {t('core:messages.noResultsFound')}
+              </Typography>
+              <Typography variant="muted" className="text-center">
+                {t('core:messages.tryRemovingFilters')}
+              </Typography>
+            </div>
           )}
         </div>
       )}
