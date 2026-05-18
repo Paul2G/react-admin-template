@@ -8,3 +8,9 @@ export type FormField<T extends FieldValues> = {
   disabled?: boolean;
   required?: boolean;
 };
+
+export type FormOption = {
+  label: string;
+  value: string;
+  description?: string;
+};

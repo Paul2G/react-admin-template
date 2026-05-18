@@ -1,4 +1,4 @@
-import type { FormField } from '@/core/types/components';
+import type { FormField, FormOption } from '@/core/types/components';
 import type { FieldValues } from 'react-hook-form';
 
 import { Controller } from 'react-hook-form';
@@ -48,11 +48,5 @@ export function FormSelect<T extends FieldValues>({
 }
 
 export type FormSelectProps<T extends FieldValues> = FormField<T> & {
-  label: string;
-  options: SelectOption[];
-};
-
-export type SelectOption = {
-  label: string;
-  value: string;
+  options: FormOption[];
 };

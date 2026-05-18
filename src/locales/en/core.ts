@@ -25,7 +25,7 @@ export const core = {
     fileSizeInvalid: 'File size should be smaller than',
     fileTypeInvalid: 'File type should be',
     // Misc
-    noAvailableOptions: 'No available options',
+    noAvailableOptions: 'No options available',
     selectedItems_one: '{{count}} selected item',
     selectedItems_other: '{{count}} selected items',
     // Generic confirm dialog
