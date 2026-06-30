@@ -92,7 +92,7 @@ export function DataView<TData>({
       {dataGridCardSlot && viewMode === 'grid' && (
         <div
           className={cn(
-            'grid gap-2 grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] ',
+            'grid gap-2 grid-cols-1 sm:grid-cols-[repeat(auto-fill,minmax(20rem,1fr))]',
             'animate-in fade-in duration-300',
             dataGridClassName,
           )}
