@@ -18,14 +18,15 @@ export function DataViewToggle({ viewMode, setViewMode }: DataViewToggleProps) {
       onValueChange={(value) => {
         if (value) setViewMode(value as ViewMode);
       }}
+      className="gap-0"
     >
-      <ToggleGroupItem value="table" className="cursor-pointer ">
+      <ToggleGroupItem value="table" className="cursor-pointer rounded-r-none">
         <TableIcon
           className={cn('size-4.5')}
           weight={viewMode === 'table' ? 'fill' : 'regular'}
         />
       </ToggleGroupItem>
-      <ToggleGroupItem value="grid" className="cursor-pointer">
+      <ToggleGroupItem value="grid" className="cursor-pointer rounded-l-none">
         <SquaresFourIcon
           className="size-4.5"
           weight={viewMode === 'grid' ? 'fill' : 'regular'}
