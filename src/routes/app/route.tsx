@@ -35,7 +35,7 @@ function AppLayout() {
     >
       <NavigationProgress />
       <AppSidebar className="animate-in fill-mode-backwards fade-in slide-in-from-left-10 duration-250 ease-out" />
-      <SidebarInset className="h-[100dvh] md:m-2 md:rounded-lg">
+      <SidebarInset className="h-[calc(100vh-1rem)] md:m-2 md:rounded-lg">
         <AppHeader className="animate-in fill-mode-backwards fade-in slide-in-from-top-10 duration-250 delay-250 ease-out" />
         <div className="grow p-6">
           <Outlet />
