@@ -5,8 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { onMutationError } from '@/core/lib/mutation-toast';
 import { login, logout } from '@/modules/auth/api/query-fns';
 import { verifyAuthQueryOptions } from '@/modules/auth/api/query-options';
-
-const fallback = '/app/dashboard' as const;
+import projectConfig from '@/project.config';
 
 export function useAuthLoginMutation() {
   const { t } = useTranslation();
@@ -22,7 +21,7 @@ export function useAuthLoginMutation() {
     onSuccess: async (user) => {
       queryClient.setQueryData(verifyAuthQueryOptions.queryKey, user);
       await router.invalidate();
-      await navigate({ to: redirect ?? fallback });
+      await navigate({ to: redirect ?? projectConfig.router.defaultRoute });
     },
     onError: onMutationError(t),
   });

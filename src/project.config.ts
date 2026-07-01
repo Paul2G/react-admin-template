@@ -20,4 +20,7 @@ export default {
     url: import.meta.env?.VITE_BASE_API_URL,
     path: '/api',
   },
+  router: {
+    defaultRoute: '/app/dashboard',
+  },
 } as const;

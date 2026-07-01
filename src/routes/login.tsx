@@ -10,8 +10,7 @@ import {
 import { createRouteHead } from '@/layout/lib/create-route-head';
 import { LoginForm } from '@/modules/auth/components/forms/login-form';
 import { useAuthLoginMutation } from '@/modules/auth/hooks/mutations';
-
-const fallback = '/app/dashboard' as const;
+import projectConfig from '@/project.config';
 
 export const Route = createFileRoute('/login')({
   validateSearch: z.object({
@@ -19,7 +18,9 @@ export const Route = createFileRoute('/login')({
   }),
   beforeLoad: async ({ context: { auth }, search }) => {
     if (auth.isAuthenticated) {
-      throw redirect({ to: search.redirect || fallback });
+      throw redirect({
+        to: search.redirect || projectConfig.router.defaultRoute,
+      });
     }
   },
   head: createRouteHead({
