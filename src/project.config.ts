@@ -1,4 +1,5 @@
 import { DateFormat } from '@/core/constants/dates';
+import { withBaseUrl } from '@/core/lib/base-url';
 
 // Some of this configs will be user decisions
 export default {
@@ -6,7 +7,7 @@ export default {
   version: 'v1.0.0',
   brand: {
     name: 'Paul2g.dev',
-    logoSrc: '/logo.svg',
+    logoSrc: withBaseUrl('logo.svg'),
   },
   time: {
     timeZone: 'America/Tijuana',

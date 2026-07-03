@@ -12,6 +12,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { I18nextProvider, useTranslation } from 'react-i18next';
 
 import { TooltipProvider } from '@/core/components/ui/tooltip';
+import { appBasePath } from '@/core/lib/base-url';
 import i18n from '@/i18n';
 import { AppRouteError } from '@/layout/components/app-route-error';
 import { ThemeProvider } from '@/layout/contexts/theme-provider';
@@ -20,15 +21,16 @@ import { ThemeProvider } from '@/layout/contexts/theme-provider';
 import { routeTree } from './routeTree.gen';
 
 const queryClient = new QueryClient();
-const history =
-  import.meta.env.VITE_BROWSER_HISTORY === 'true'
-    ? createBrowserHistory()
-    : createHashHistory();
+const useBrowserHistory = import.meta.env.VITE_BROWSER_HISTORY === 'true';
+const history = useBrowserHistory
+  ? createBrowserHistory()
+  : createHashHistory();
 
 // Set up a Router instance
 const router = createRouter({
   history: history,
   routeTree,
+  ...(useBrowserHistory && appBasePath ? { basepath: appBasePath } : {}),
   context: {
     queryClient,
     auth: undefined!,
