@@ -7,6 +7,7 @@ export default {
   brand: {
     name: 'Dilato',
     logoSrc: '/logo.png',
+    fullLogoSrc: '/logo-full.png',
   },
   time: {
     timeZone: 'America/Tijuana',

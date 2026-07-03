@@ -51,8 +51,8 @@ export function LoginForm({
       <Card>
         <CardHeader className="text-center">
           <img
-            src={projectConfig.brand.logoSrc}
-            className="w-24 mx-auto py-4"
+            src={projectConfig.brand.fullLogoSrc}
+            className="w-1/2 mx-auto py-4"
           />
           <CardTitle className="text-xl">
             {t('core:greetings.welcomeBack')}
