@@ -24,7 +24,7 @@ export function useCreateDeviceMutation({
     mutationFn: createDevice,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['devices'] });
-      toast.success('messages.wasCreated');
+      toast.success(t('messages.wasCreated'));
       onSuccess();
     },
     onError: onMutationError(t),
@@ -46,7 +46,7 @@ export function useUpdateDeviceMutation({
     mutationFn: (data: DeviceFormData) => updateDevice(deviceId, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['devices'] });
-      toast.success('messages.wasUpdated');
+      toast.success(t('messages.wasUpdated'));
       onSuccess();
     },
     onError: onMutationError(t),
@@ -62,7 +62,7 @@ export function useDeleteDeviceMutation({ deviceId }: { deviceId: number }) {
     mutationFn: () => deleteDevice(deviceId),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['devices'] });
-      toast.success('messages.wasDeleted');
+      toast.success(t('messages.wasDeleted'));
     },
     onError: onMutationError(t),
   });

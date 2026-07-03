@@ -7,12 +7,12 @@ export const deviceSchema = z.object({
   id: z.number(),
   createdAt: z.coerce.date(),
   // User generated
-  name: z.string(),
+  name: z.string().min(1, 'Name is required'),
   brand: z.string().nullable(),
   chip: z.string().nullable(),
   os: z.string().nullable(),
   ports: z.string().nullable(),
-  available: z.boolean().default(true),
+  available: z.boolean(),
 });
 export const deviceFormSchema = deviceSchema.omit({
   id: true,

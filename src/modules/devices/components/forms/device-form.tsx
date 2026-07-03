@@ -5,12 +5,10 @@ import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
 import { FormInput } from '@/core/components/form-fields/form-input';
-import { FormSelect } from '@/core/components/form-fields/form-select';
 import { FormSwitch } from '@/core/components/form-fields/form-switch';
 import { Button } from '@/core/components/ui/button';
 import { FieldGroup } from '@/core/components/ui/field';
 import { Spinner } from '@/core/components/ui/spinner';
-import { ItemStatus } from '@/core/constants/misc';
 import { deviceFormSchema } from '@/modules/devices/schemas';
 
 export function DeviceForm({
@@ -25,66 +23,40 @@ export function DeviceForm({
   const form = useForm<DeviceFormData>({
     resolver: zodResolver(deviceFormSchema),
     defaultValues: {
-      key: '',
       name: '',
-      count: 0,
-      description: '',
-      status: ItemStatus.PENDING,
-      email: '',
-      website: '',
-      image: '',
-      special: false,
-      price: 0,
+      brand: '',
+      chip: '',
+      os: '',
+      ports: '',
+      available: true,
       ...defaultValues,
     },
   });
 
   const isSubmitting = form.formState.isSubmitting || isLoading;
-  const statusOptions = Object.values(ItemStatus).map((s) => ({
-    value: s,
-    label: t(`constants.status.${s}`),
-  }));
 
   return (
     <form id="device-form" onSubmit={form.handleSubmit(onSubmit)}>
       <FieldGroup className="gap-4">
-        <div className="grid grid-cols-2 gap-4">
-          <FormInput
-            control={form.control}
-            name="name"
-            label={t('devices:fields.name')}
-            disabled={isSubmitting}
-            required
-          />
-          <FormInput
-            control={form.control}
-            name="key"
-            label={t('devices:fields.key')}
-            disabled={isSubmitting}
-            required
-          />
-        </div>
-
         <FormInput
           control={form.control}
-          name="description"
-          label={t('devices:fields.description')}
+          name="name"
+          label={t('devices:fields.name')}
           disabled={isSubmitting}
+          required
         />
 
         <div className="grid grid-cols-2 gap-4">
-          <FormSelect
+          <FormInput
             control={form.control}
-            name="status"
-            label={t('devices:fields.status')}
-            options={statusOptions}
+            name="brand"
+            label={t('devices:fields.brand')}
             disabled={isSubmitting}
           />
           <FormInput
             control={form.control}
-            name="count"
-            label={t('devices:fields.count')}
-            type="number"
+            name="chip"
+            label={t('devices:fields.chip')}
             disabled={isSubmitting}
           />
         </div>
@@ -92,44 +64,22 @@ export function DeviceForm({
         <div className="grid grid-cols-2 gap-4">
           <FormInput
             control={form.control}
-            name="email"
-            label={t('devices:fields.email')}
-            type="email"
+            name="os"
+            label={t('devices:fields.os')}
             disabled={isSubmitting}
-            required
           />
           <FormInput
             control={form.control}
-            name="price"
-            label={t('devices:fields.price')}
-            type="number"
+            name="ports"
+            label={t('devices:fields.ports')}
             disabled={isSubmitting}
-          />
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <FormInput
-            control={form.control}
-            name="website"
-            label={t('devices:fields.website')}
-            type="url"
-            disabled={isSubmitting}
-            required
-          />
-          <FormInput
-            control={form.control}
-            name="image"
-            label={t('devices:fields.image')}
-            type="url"
-            disabled={isSubmitting}
-            required
           />
         </div>
 
         <FormSwitch
           control={form.control}
-          name="special"
-          label={t('devices:fields.isSpecial')}
+          name="available"
+          label={t('devices:fields.available')}
           disabled={isSubmitting}
         />
 

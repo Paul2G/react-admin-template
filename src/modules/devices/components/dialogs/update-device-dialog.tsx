@@ -27,7 +27,7 @@ export function UpdateDeviceDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle>{t('devices:actions.edit')}</DialogTitle>
+          <DialogTitle>{t('devices:dialogs.update.title')}</DialogTitle>
         </DialogHeader>
         <DeviceForm
           defaultValues={device}

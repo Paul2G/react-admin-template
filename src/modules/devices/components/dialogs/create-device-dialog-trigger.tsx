@@ -26,7 +26,7 @@ export function CreateDeviceDialogTrigger({
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle>{t('devices:actions.addNew')}</DialogTitle>
+          <DialogTitle>{t('devices:dialogs.create.title')}</DialogTitle>
         </DialogHeader>
         <DeviceForm
           onSubmit={(data) => mutation.mutate(data)}

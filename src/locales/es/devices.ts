@@ -8,6 +8,14 @@ export const devices = {
     available: 'Disponible',
   },
   actions: {},
+  dialogs: {
+    create: {
+      title: 'Añadir dispositivo',
+    },
+    update: {
+      title: 'Actualizar dispositivo',
+    },
+  },
   messages: {},
   filters: {},
   forms: {},

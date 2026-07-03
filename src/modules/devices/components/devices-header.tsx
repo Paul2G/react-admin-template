@@ -17,7 +17,7 @@ export function DevicesHeader({}: DevicesHeaderProps) {
         <CreateDeviceDialogTrigger>
           <Button>
             <PlusIcon />
-            {t('devices:actions.addNew')}
+            {t('actions.addNew')}
           </Button>
         </CreateDeviceDialogTrigger>
       )}
