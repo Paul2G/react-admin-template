@@ -89,32 +89,32 @@ export function DataView<TData>({
           className="animate-in fade-in duration-300"
         />
       )}
-      {dataGridCardSlot && viewMode === 'grid' && (
-        <div
-          className={cn(
-            'grid gap-2 grid-cols-1 sm:grid-cols-[repeat(auto-fill,minmax(20rem,1fr))]',
-            'animate-in fade-in duration-300',
-            dataGridClassName,
-          )}
-        >
-          {items.length ? (
-            items.map(dataGridCardSlot)
-          ) : (
-            <div className="flex flex-col items-center gap-2 py-16">
-              <MagnifyingGlassIcon
-                className="text-muted-foreground size-20"
-                weight="thin"
-              />
-              <Typography variant="lead" className="text-center">
-                {t('core:messages.noResultsFound')}
-              </Typography>
-              <Typography variant="muted" className="text-center">
-                {t('core:messages.tryRemovingFilters')}
-              </Typography>
-            </div>
-          )}
-        </div>
-      )}
+      {dataGridCardSlot &&
+        viewMode === 'grid' &&
+        (items.length > 0 ? (
+          <div
+            className={cn(
+              'grid gap-2 grid-cols-1 sm:grid-cols-[repeat(auto-fill,minmax(20rem,1fr))]',
+              'animate-in fade-in duration-300',
+              dataGridClassName,
+            )}
+          >
+            {items.map(dataGridCardSlot)}
+          </div>
+        ) : (
+          <div className="flex flex-col items-center gap-2 py-16">
+            <MagnifyingGlassIcon
+              className="text-muted-foreground size-20"
+              weight="thin"
+            />
+            <Typography variant="lead" className="text-center">
+              {t('core:messages.noResultsFound')}
+            </Typography>
+            <Typography variant="muted" className="text-center">
+              {t('core:messages.tryRemovingFilters')}
+            </Typography>
+          </div>
+        ))}
       <DataPaginator
         className="max-sm:fixed max-sm:bottom-0 max-sm:left-0 max-sm:py-2 mt-auto bg-background"
         currentPage={pagination.currentPage}
