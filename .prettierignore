@@ -1,0 +1,7 @@
+# Package manager lockfiles
+pnpm-lock.yaml
+node_modules/
+
+# Build directories
+dist/
+build/
