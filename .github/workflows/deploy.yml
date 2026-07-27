@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
@@ -36,7 +36,6 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm i --frozen-lockfile
-
 
       - name: Build project
         run: pnpm build
