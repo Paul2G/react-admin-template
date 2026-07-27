@@ -10,8 +10,8 @@ import { NotOkResponseError } from '@/core/errors';
 import { createRouteHead } from '@/layout/lib/create-route-head';
 import { dummiesIndexQueryOptions } from '@/modules/dummies/api/query-options';
 import { DummiesHeader } from '@/modules/dummies/components/dummies-header';
+import { DummyCard } from '@/modules/dummies/components/dummy-card';
 import { dummiesTableColumns } from '@/modules/dummies/data/data-table-settings';
-import { DummyCard } from '@/modules/dummies/dummy-card';
 import { dummiesSearchSchema } from '@/modules/dummies/schemas';
 import { ApiPermissions } from '@/modules/shared/constants/permissions';
 

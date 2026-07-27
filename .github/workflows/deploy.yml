@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
@@ -37,9 +37,11 @@ jobs:
       - name: Install Dependencies
         run: pnpm i --frozen-lockfile
 
-
       - name: Build project
         run: pnpm build
+
+      - name: Add SPA fallback for GitHub Pages
+        run: cp dist/index.html dist/404.html
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3

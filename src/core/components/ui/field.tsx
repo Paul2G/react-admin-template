@@ -2,8 +2,8 @@
 
 import type { VariantProps } from 'class-variance-authority';
 
-import { cva } from 'class-variance-authority';
 import { useMemo } from 'react';
+import { cva } from 'class-variance-authority';
 
 import { Label } from '@/core/components/ui/label';
 import { Separator } from '@/core/components/ui/separator';
@@ -104,7 +104,7 @@ function FieldLabel({
   className,
   required,
   ...props
-}: React.ComponentProps<typeof Label>  & { required?: boolean }) {
+}: React.ComponentProps<typeof Label> & { required?: boolean }) {
   return (
     <Label
       data-slot="field-label"
@@ -229,10 +229,14 @@ function FieldError({
 }
 
 export {
-  Field, FieldContent, FieldDescription,
+  Field,
+  FieldContent,
+  FieldDescription,
   FieldError,
-  FieldGroup, FieldLabel, FieldLegend,
+  FieldGroup,
+  FieldLabel,
+  FieldLegend,
   FieldSeparator,
-  FieldSet, FieldTitle
+  FieldSet,
+  FieldTitle,
 };
-

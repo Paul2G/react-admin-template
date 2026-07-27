@@ -1,12 +1,14 @@
 import {
   ArrowLeftIcon,
   HammerIcon,
+  HouseIcon,
   TrafficConeIcon,
 } from '@phosphor-icons/react';
-import { useRouter } from '@tanstack/react-router';
+import { Link, useRouter } from '@tanstack/react-router';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/core/components/ui/button';
+import projectConfig from '@/project.config';
 
 export function UnderConstruction() {
   const { t } = useTranslation('layout');
@@ -48,10 +50,18 @@ export function UnderConstruction() {
       </p>
 
       {/* Action */}
-      <Button variant="outline" onClick={() => router.history.back()}>
-        <ArrowLeftIcon />
-        {t('actions.back')}
-      </Button>
+      <div className="flex gap-2">
+        <Button variant="outline" onClick={() => router.history.back()}>
+          <ArrowLeftIcon />
+        </Button>
+
+        <Button variant="outline" asChild>
+          <Link to={projectConfig.router.defaultRoute}>
+            <HouseIcon />
+            {t('actions.goHome')}
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 }

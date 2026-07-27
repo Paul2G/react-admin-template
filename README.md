@@ -9,17 +9,20 @@ This project is a fully-featured admin dashboard template that serves as a start
 ## 🏗️ Tech Stack
 
 ### Core Framework
+
 - **React 19** - Latest React with concurrent features
 - **TypeScript 5.9** - Strict type-safe development
 - **Vite 7** - Lightning-fast build tool and dev server
 - **SWC** - Ultra-fast JavaScript/TypeScript compiler for hot module replacement
 
 ### Routing & State Management
+
 - **TanStack React Router** - Type-safe file-based routing with automatic code splitting
 - **TanStack React Query (v5)** - Powerful server state management and caching
 - **TanStack React Table (v8)** - Headless table component for complex data management
 
 ### UI & Styling
+
 - **Tailwind CSS 4** - Utility-first CSS framework
 - **Radix UI** - Unstyled, accessible component primitives
 - **Shadcn Components** - Pre-built accessible UI components
@@ -27,15 +30,18 @@ This project is a fully-featured admin dashboard template that serves as a start
 - **Sonner** - Beautiful toast notifications
 
 ### Forms & Validation
+
 - **React Hook Form** - Performant, flexible form handling
 - **Zod** - TypeScript-first schema validation
 
 ### Internationalization
+
 - **i18next** - Internationalization framework
 - **react-i18next** - React bindings for i18next
 - **Supported Languages**: English (en), Spanish (es)
 
 ### Additional Libraries
+
 - **date-fns & dayjs** - Date manipulation utilities
 - **js-cookie** - Cookie handling
 - **next-themes** - Theme management (light/dark/system)
@@ -43,6 +49,7 @@ This project is a fully-featured admin dashboard template that serves as a start
 - **clsx & tailwind-merge** - Class name utilities
 
 ### Development Tools
+
 - **ESLint** - Code linting and quality
 - **Prettier** - Code formatting with import sorting
 - **TypeScript Strict Mode** - Maximum type safety
@@ -86,6 +93,7 @@ src/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 18+ (22+ recommended)
 - pnpm (or npm/yarn)
 
@@ -127,7 +135,7 @@ The template includes a complete authentication system:
 import { request } from '@/core/api/request';
 
 const data = await request<UserType>('GET', '/users', {
-  query: { page: 1 }
+  query: { page: 1 },
 });
 ```
 
