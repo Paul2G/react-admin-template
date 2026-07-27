@@ -12,6 +12,6 @@ export const dummiesIndexQueryOptions = (params: DummiesSearchParams) =>
 
 export const dummyQueryOptions = (itemId: number) =>
   queryOptions({
-    queryKey: ['dummyById', itemId],
+    queryKey: ['dummies', itemId],
     queryFn: () => getDummyById(itemId),
   });
