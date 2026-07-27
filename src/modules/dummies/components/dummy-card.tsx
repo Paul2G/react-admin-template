@@ -107,14 +107,10 @@ export function DummyCard({ dummy, className }: DummyCardProps) {
             </a>
           }
         />
-        <CardFooter>
-          <DummyActions
-            dummy={dummy}
-            variant="outline"
-            className="absolute bottom-2 right-4"
-          />
-        </CardFooter>
       </CardContent>
+      <CardFooter className="grow flex items-end justify-end gap-2 py-2">
+        <DummyActions dummy={dummy} variant="outline" />
+      </CardFooter>
     </Card>
   );
 }
